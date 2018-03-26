@@ -18,14 +18,14 @@ def create_api_request(api_callerid, api_key, area):
     unique = str(''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(16)))
     hashstr = hashlib.sha1((callerId + time + key + unique).encode('utf-8')).hexdigest()
     query_type = 'listings'
-    query_city = area
+    areaId = area
     offset = '0'
     limit = str(10)  # Maximum number of response objects. Limit = 500
     object_type = "lägenhet"
     MinRooms = "1"
     MaxPrice = "3500000"
     r = requests.get("https://api.booli.se/" +
-                     query_type + "?q=" + query_city +
+                     query_type + "?q=" + areaId +
                      "&callerId=" + callerId +
                      "&time=" + time +
                      "&unique=" + unique +
@@ -120,10 +120,10 @@ def send_email(send_to, send_from_email, send_from_password, html):
 
 
 def main():
-    output = create_api_request('Rikard Fahlström', api_key, 'fålhagen')
+    output = create_api_request('Rikard Fahlström', 'ENTER_API_KEY', '386690,870600')
     df = create_df(output)
     html = create_html(df)
-    send_email('rikard.fahlstrom@gmail.com', 'rikard.email.notification@gmail.com', 'send_from_password, html)
+    send_email('rikard.fahlstrom@gmail.com', 'rikard.email.notification@gmail.com', 'ENTER_SENT_EMAIL_PWD', html)
 
 
 if __name__ == '__main__':
