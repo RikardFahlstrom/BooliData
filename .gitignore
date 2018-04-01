@@ -1,4 +1,4 @@
 ./Data
 .idea*
 .ipynb_checkpoints
-
+/env_BooliData/*
