@@ -125,7 +125,7 @@ def main():
     output = create_api_request('Rikard Fahlström', 'ENTER_API_KEY', '386690,870600')
     df = create_df(output)
     html = create_html(df)
-    send_email('rikard.fahlstrom@gmail.com', 'rikard.email.notification@gmail.com', 'ENTER_MAIL_PWD', html)
+    send_email('rikard.fahlstrom@gmail.com', 'rikard.email.notification@gmail.com', 'SEND_EMAIL_PWD', html)
 
 
 if __name__ == '__main__':
